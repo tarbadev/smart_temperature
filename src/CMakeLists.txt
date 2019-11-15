@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.4)
+cmake_minimum_required(VERSION 3.7.2)
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(PROJECT_NAME arduino_tdd_cpp)
 
