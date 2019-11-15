@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.7.2)
+add_subdirectory(main)
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(PROJECT_NAME arduino_tdd_cpp)
 
@@ -11,13 +12,10 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(${PROJECT_NAME}_HDRS User_Setup.h)
 
   ### Additional static libraries to include in the target.
-  # set(${PROJECT_NAME}_LIBS)
+  set(${PROJECT_NAME}_LIBS arduino_tdd_cpp_lib)
 
   ### Main sketch file
   set(${PROJECT_NAME}_SKETCH arduino_tdd_cpp.ino)
-
-  ### Add project directories into the build
-  # add_subdirectory()
 
   ### Additional settings to add non-standard or your own Arduino libraries.
   # For this example (libs will contain additional arduino libraries)
