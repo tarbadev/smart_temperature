@@ -17,12 +17,9 @@ TEST(ApplicationTest, loop_readsTemperatureAndWaits10Seconds) {
   SerialMock *pSerialMock = serialMockInstance();
 
   EXPECT_CALL(*pArduinoMock, analogRead(testing::Eq(A0)))
-      .Times(testing::Exactly(1))
-      .WillOnce(testing::Return(124));
-  EXPECT_CALL(*pSerialMock, println(testing::SafeMatcherCast<const char *>(testing::StrEq("10.5 degrees"))))
-      .Times(testing::Exactly(1));
-  EXPECT_CALL(*pArduinoMock, delay(testing::Eq(10000)))
-    .Times(testing::Exactly(1));
+      .WillRepeatedly(testing::Return(124));
+  EXPECT_CALL(*pSerialMock, println(testing::SafeMatcherCast<const char *>(testing::StrEq("10.5 degrees"))));
+  EXPECT_CALL(*pArduinoMock, delay(testing::Eq(10000)));
 
   loop();
 
