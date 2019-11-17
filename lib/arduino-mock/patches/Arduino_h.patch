@@ -1,0 +1,13 @@
+diff --git a/Arduino.h b/Arduino.h
+index 59650d2..ed0e791 100644
+--- a/Arduino.h
++++ b/Arduino.h
+@@ -11,6 +11,8 @@
+ extern "C" {
+ #endif
+ 
++#define A0 10
++
+ #define HIGH 0x1
+ #define LOW  0x0
+ 

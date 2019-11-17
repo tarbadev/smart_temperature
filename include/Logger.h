@@ -5,6 +5,7 @@
 
 class Logger {
 public:
+  virtual void initialize(uint32_t pin);
   virtual void writeLog(const char *pLogMessage);
 };
 

@@ -6,6 +6,7 @@
 
 class LoggerMock: public Logger {
 public:
+  MOCK_METHOD(void, initialize, (uint32_t pin));
   MOCK_METHOD(void, writeLog, (const char *logMessage));
 };
 

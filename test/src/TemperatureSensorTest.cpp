@@ -1,15 +1,24 @@
 #include <TemperatureSensor.h>
+#include <Arduino.h>
 #include "gtest/gtest.h"
-#include "LoggerMock.h"
 
-using ::testing::StrEq;
+using ::testing::SafeMatcherCast;
 using ::testing::Exactly;
+using ::testing::Eq;
+using ::testing::Return;
 
-TEST(TemperatureSensorTest, update_logsTemperature) {
-  LoggerMock loggerMock;
-  TemperatureSensor temperatureSensor(&loggerMock);
+TEST(TemperatureSensorTest, readTemperature_callsAnalogReadWithPin) {
+  uint8_t pin = 123;
+  ArduinoMock *pArduinoMock = arduinoMockInstance();
+  TemperatureSensor temperatureSensor(pin);
 
-  EXPECT_CALL(loggerMock, writeLog(StrEq("15.3 degrees"))).Times(Exactly(1));
+  EXPECT_CALL(*pArduinoMock, analogRead(Eq(pin)))
+      .Times(Exactly(1))
+      .WillOnce(Return(124));
 
-  temperatureSensor.setCurrentTemperature(15.3);
+  float temperature = temperatureSensor.readTemperature();
+  EXPECT_GE(temperature, 10.5);
+  EXPECT_LE(temperature, 10.6);
+
+  releaseArduinoMock();
 }

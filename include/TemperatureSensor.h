@@ -1,20 +1,17 @@
 #ifndef ARDUINO_TDD_CPP_TEMPERATURESENSOR_H
 #define ARDUINO_TDD_CPP_TEMPERATURESENSOR_H
 
-#include "Logger.h"
+#include "Arduino.h"
 
 class TemperatureSensor {
-
 public:
-  void setCurrentTemperature(double currentTemperature);
-
-  explicit TemperatureSensor(Logger *pLogger) {
-    this->pLogger = pLogger;
-  };
+  virtual float readTemperature();
+  explicit TemperatureSensor(uint8_t pin) {
+    this->pin = pin;
+  }
 
 private:
-  Logger* pLogger;
+  uint8_t pin;
 };
-
 
 #endif //ARDUINO_TDD_CPP_TEMPERATURESENSOR_H

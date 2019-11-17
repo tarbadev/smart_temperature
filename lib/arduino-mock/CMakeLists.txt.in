@@ -10,7 +10,7 @@ ExternalProject_Add(
     GIT_REPOSITORY https://github.com/balp/arduino-mock.git
     SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/arduino-mock-src"
     BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/arduino-mock-build"
-    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.patch
+    PATCH_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/applyPatches.sh "${CMAKE_CURRENT_SOURCE_DIR}/patches"
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
