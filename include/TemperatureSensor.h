@@ -5,7 +5,7 @@
 
 class TemperatureSensor {
 public:
-  virtual float readTemperature();
+  virtual double readTemperature();
   explicit TemperatureSensor(uint8_t pin) {
     this->pin = pin;
   }

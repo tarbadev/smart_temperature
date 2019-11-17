@@ -7,7 +7,7 @@
 class TemperatureSensorMock: public TemperatureSensor {
 public:
   TemperatureSensorMock() : TemperatureSensor(210){}
-  MOCK_METHOD(float, readTemperature, ());
+  MOCK_METHOD(double, readTemperature, ());
 };
 
 #endif //ARDUINO_TDD_CPP_TEMPERATURESENSORMOCK_H

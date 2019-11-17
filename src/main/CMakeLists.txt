@@ -11,5 +11,6 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
       SRCS ${SOURCE_FILES}
       BOARD uno)
 else ()
-  add_library(${PROJECT_NAME} SHARED STATIC ${SOURCE_FILES})
+  include_directories(stub)
+  add_library(${PROJECT_NAME} SHARED STATIC ${SOURCE_FILES} stub/dtostrf.c)
 endif ()
