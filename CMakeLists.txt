@@ -10,5 +10,13 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 set(ARDUINO_TDD_CPP_HEADERS_DIR ${PROJECT_SOURCE_DIR}/include)
 
+if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
+  add_subdirectory(lib/googletest)
+  include_directories("${gtest_SOURCE_DIR}/include")
+  include_directories("${gmock_SOURCE_DIR}/include")
+  add_subdirectory(lib/arduino-mock)
+  include_directories(${ARDUINO_MOCK_INCLUDE_DIRS})
+  add_subdirectory(test)
+endif ()
+
 add_subdirectory(src)
-add_subdirectory(test)

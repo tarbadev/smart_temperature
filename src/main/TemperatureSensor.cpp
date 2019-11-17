@@ -1,8 +1,9 @@
-#include <sstream>
 #include "TemperatureSensor.h"
 
 void TemperatureSensor::setCurrentTemperature(double currentTemperature) {
-  std::ostringstream logMessage;
-  logMessage << currentTemperature << " degrees";
-  pLogger->writeLog(logMessage.str());
+  const char *pDegrees = "degrees";
+  char logMessage [strlen(pDegrees) + 5];
+  sprintf(logMessage, "%0.1f degrees", currentTemperature);
+
+  pLogger->writeLog(logMessage);
 }

@@ -6,7 +6,7 @@
 
 class LoggerMock: public Logger {
 public:
-  MOCK_METHOD(void, writeLog, (std::string logMessage));
+  MOCK_METHOD(void, writeLog, (const char *logMessage));
 };
 
 #endif //ARDUINO_TDD_CPP_LOGGERMOCK_H

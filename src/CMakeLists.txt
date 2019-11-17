@@ -3,6 +3,8 @@ add_subdirectory(main)
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(PROJECT_NAME arduino_tdd_cpp)
 
+  include_directories(${ARDUINO_TDD_CPP_HEADERS_DIR})
+
   set(${PROJECT_NAME}_BOARD uno)
   # set(ARDUINO_CPU)
   project(${PROJECT_NAME})
