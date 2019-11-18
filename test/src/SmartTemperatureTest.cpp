@@ -1,6 +1,7 @@
 #include <SmartTemperature.h>
 #include <TemperatureSensorMock.h>
 #include <LoggerMock.h>
+#include <LcdScreenMock.h>
 #include <Serial.h>
 #include "gtest/gtest.h"
 
@@ -18,7 +19,7 @@ public:
   }
 protected:
   void SetUp() override {
-    smartTemperature = new SmartTemperature(&loggerMock, &temperatureSensorMock);
+    smartTemperature = new SmartTemperature(&loggerMock, &temperatureSensorMock, &lcdScreenMock);
   }
 
   void TearDown() override {
@@ -26,6 +27,7 @@ protected:
   }
 
   LoggerMock loggerMock;
+  LcdScreenMock lcdScreenMock;
   TemperatureSensorMock temperatureSensorMock;
   SmartTemperature *smartTemperature{};
 };
@@ -35,6 +37,7 @@ TEST_F(SmartTemperatureTest, update_readsTemperature_andLogsIt) {
       .Times(Exactly(1))
       .WillOnce(Return(15.312));
   EXPECT_CALL(loggerMock, writeLog(StrEq("15.3 degrees"))).Times(Exactly(1));
+  EXPECT_CALL(lcdScreenMock, display(StrEq("15.3 degrees"))).Times(Exactly(1));
 
   smartTemperature->update();
 }

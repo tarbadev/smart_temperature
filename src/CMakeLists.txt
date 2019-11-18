@@ -14,7 +14,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(${PROJECT_NAME}_HDRS User_Setup.h)
 
   ### Additional static libraries to include in the target.
-  set(${PROJECT_NAME}_LIBS arduino_tdd_cpp_lib)
+  set(${PROJECT_NAME}_LIBS arduino_tdd_cpp_lib uno_LiquidCrystal)
 
   ### Main sketch file
   set(${PROJECT_NAME}_SKETCH arduino_tdd_cpp.ino)
@@ -29,7 +29,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
 
   #### Additional settings for programmer. From programmers.txt
   # set(${PROJECT_NAME}_PROGRAMMER avrispmkii)
-  set(${PROJECT_NAME}_PORT /dev/cu.usbmodem14401)
+  set(${PROJECT_NAME}_PORT /dev/cu.usbmodem14301)
   # set(uno.upload.speed 9600)
 
   ## Verbose build process

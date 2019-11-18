@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <LiquidCrystal.h>
 #include "User_Setup.h"
 #include "SmartTemperature.h"
 #include "Logger.h"
@@ -6,10 +7,13 @@
 
 TemperatureSensor temperatureSensor(A0);
 Logger logger;
-SmartTemperature smartTemperature(&logger, &temperatureSensor);
+LiquidCrystal liquidCrystal(12, 11, 5, 4, 3, 2);
+LcdScreen lcdScreen(&liquidCrystal);
+SmartTemperature smartTemperature(&logger, &temperatureSensor, &lcdScreen);
 
 void setup() {
   logger.initialize(9600);
+  lcdScreen.initialize();
 }
 
 void loop() {

@@ -1,8 +1,14 @@
 diff --git a/Arduino.h b/Arduino.h
-index 59650d2..ed0e791 100644
+index 59650d2..51d2418 100644
 --- a/Arduino.h
 +++ b/Arduino.h
-@@ -11,6 +11,8 @@
+@@ -6,11 +6,14 @@
+ 
+ #include <stdint.h>
+ #include "Serial.h"
++#include "LiquidCrystal.h"
+ 
+ #ifdef __cplusplus
  extern "C" {
  #endif
  

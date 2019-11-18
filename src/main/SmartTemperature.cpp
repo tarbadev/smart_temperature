@@ -8,8 +8,9 @@ void SmartTemperature::update() {
 
   char currentTemperatureStr[6];
   dtostrf(currentTemperature, 1, 1, currentTemperatureStr);
-  char logMessage[20];
-  snprintf(logMessage, sizeof(logMessage), "%s degrees", currentTemperatureStr);
+  char message[20];
+  snprintf(message, sizeof(message), "%s degrees", currentTemperatureStr);
 
-  pLogger->writeLog(logMessage);
+  pLogger->writeLog(message);
+  pLcdScreen->display(message);
 }

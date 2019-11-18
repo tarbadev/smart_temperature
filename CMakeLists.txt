@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7.2)
-#set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/ArduinoToolchain.cmake)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/ArduinoToolchain.cmake)
 project(arduino_tdd_cpp)
 
 set(CMAKE_CXX_STANDARD 11)

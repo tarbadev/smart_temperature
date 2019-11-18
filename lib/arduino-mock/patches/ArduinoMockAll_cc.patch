@@ -1,0 +1,12 @@
+diff --git a/src/ArduinoMockAll.cc b/src/ArduinoMockAll.cc
+index 417fc16..c8eb8ac 100644
+--- a/src/ArduinoMockAll.cc
++++ b/src/ArduinoMockAll.cc
+@@ -2,6 +2,7 @@
+ 
+ #include "Arduino.cc"
+ #include "EEPROM.cc"
++#include "LiquidCrystal.cc"
+ #include "Redbot.cc"
+ #include "Serial.cc"
+ #include "serialHelper.cc"

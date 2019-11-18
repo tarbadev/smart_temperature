@@ -4,9 +4,11 @@ set(PROJECT_NAME arduino_tdd_cpp_lib)
 project(${PROJECT_NAME})
 
 include_directories(${ARDUINO_TDD_CPP_HEADERS_DIR})
-set(SOURCE_FILES SmartTemperature.cpp ArduinoLogger.cpp ArduinoTemperatureSensor.cpp)
+file(GLOB SOURCE_FILES *.cpp)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
+  include_directories(${ARDUINO_LIBRARIES_PATH}/LiquidCrystal/src)
+
   generate_arduino_library(${PROJECT_NAME}
       SRCS ${SOURCE_FILES}
       BOARD uno)

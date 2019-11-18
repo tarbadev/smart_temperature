@@ -1,0 +1,173 @@
+diff --git a/src/LiquidCrystal.cc b/src/LiquidCrystal.cc
+new file mode 100644
+index 0000000..7f9438c
+--- /dev/null
++++ b/src/LiquidCrystal.cc
+@@ -0,0 +1,166 @@
++#include <LiquidCrystal.h>
++
++static LiquidCrystalMock *gLiquidCrystalMock = nullptr;
++
++LiquidCrystalMock *liquidCrystalMockInstance() {
++  if (!gLiquidCrystalMock) {
++    gLiquidCrystalMock = new LiquidCrystalMock();
++  }
++  return gLiquidCrystalMock;
++}
++
++void releaseLiquidCrystalMock() {
++  if (gLiquidCrystalMock) {
++    delete gLiquidCrystalMock;
++    gLiquidCrystalMock = nullptr;
++  }
++}
++
++LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t enable,
++                             uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
++                             uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7) {}
++
++LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t rw, uint8_t enable,
++                             uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
++                             uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7) {}
++
++LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t rw, uint8_t enable,
++                             uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3) {}
++
++LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t enable,
++                             uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3) {}
++
++void LiquidCrystal::init(
++    uint8_t fourbitmode,
++    uint8_t rs,
++    uint8_t rw,
++    uint8_t enable,
++    uint8_t d0,
++    uint8_t d1,
++    uint8_t d2,
++    uint8_t d3,
++    uint8_t d4,
++    uint8_t d5,
++    uint8_t d6,
++    uint8_t d7
++) {
++  gLiquidCrystalMock->init(
++      fourbitmode,
++      rs,
++      rw,
++      enable,
++      d0,
++      d1,
++      d2,
++      d3,
++      d4,
++      d5,
++      d6,
++      d7
++  );
++}
++
++void LiquidCrystal::begin(uint8_t cols, uint8_t rows, uint8_t charsize) {
++  gLiquidCrystalMock->begin(cols, rows, charsize);
++}
++
++void LiquidCrystal::clear() {
++  gLiquidCrystalMock->clear();
++}
++
++void LiquidCrystal::home() {
++  gLiquidCrystalMock->home();
++}
++
++void LiquidCrystal::noDisplay() {
++  gLiquidCrystalMock->noDisplay();
++}
++
++void LiquidCrystal::display() {
++  gLiquidCrystalMock->display();
++}
++
++void LiquidCrystal::noBlink() {
++  gLiquidCrystalMock->noBlink();
++}
++
++void LiquidCrystal::blink() {
++  gLiquidCrystalMock->blink();
++}
++
++void LiquidCrystal::noCursor() {
++  gLiquidCrystalMock->noCursor();
++}
++
++void LiquidCrystal::cursor() {
++  gLiquidCrystalMock->cursor();
++}
++
++void LiquidCrystal::scrollDisplayLeft() {
++  gLiquidCrystalMock->scrollDisplayLeft();
++}
++
++void LiquidCrystal::scrollDisplayRight() {
++  gLiquidCrystalMock->scrollDisplayRight();
++}
++
++void LiquidCrystal::leftToRight() {
++  gLiquidCrystalMock->leftToRight();
++}
++
++void LiquidCrystal::rightToLeft() {
++  gLiquidCrystalMock->rightToLeft();
++}
++
++void LiquidCrystal::autoscroll() {
++  gLiquidCrystalMock->autoscroll();
++}
++
++void LiquidCrystal::noAutoscroll() {
++  gLiquidCrystalMock->noAutoscroll();
++}
++
++void LiquidCrystal::setRowOffsets(int row1, int row2, int row3, int row4) {
++  gLiquidCrystalMock->setRowOffsets(row1, row2, row3, row4);
++}
++
++void LiquidCrystal::createChar(uint8_t location, uint8_t charmap[]) {
++  gLiquidCrystalMock->createChar(location, charmap);
++}
++
++void LiquidCrystal::setCursor(uint8_t col, uint8_t row) {
++  gLiquidCrystalMock->setCursor(col, row);
++}
++
++size_t LiquidCrystal::write(uint8_t message) {
++  return gLiquidCrystalMock->write(message);
++};
++
++void LiquidCrystal::command(uint8_t value) {
++  gLiquidCrystalMock->command(value);
++}
++
++size_t LiquidCrystal::print(const char log[]) {
++  return gLiquidCrystalMock->print(log);
++}
++size_t LiquidCrystal::print(char log) {
++  return gLiquidCrystalMock->print(log);
++}
++size_t LiquidCrystal::print(unsigned char log, int size) {
++  return gLiquidCrystalMock->print(log, size);
++}
++size_t LiquidCrystal::print(int a, int b) {
++  return gLiquidCrystalMock->print(a, b);
++}
++size_t LiquidCrystal::print(unsigned int a, int b) {
++  return gLiquidCrystalMock->print(a, b);
++}
++size_t LiquidCrystal::print(long a, int b) {
++  return gLiquidCrystalMock->print(a, b);
++}
++size_t LiquidCrystal::print(unsigned long a, int b) {
++  return gLiquidCrystalMock->print(a, b);
++}
++size_t LiquidCrystal::print(double a, int b) {
++  return gLiquidCrystalMock->print(a, b);
++}
+\ No newline at end of file
