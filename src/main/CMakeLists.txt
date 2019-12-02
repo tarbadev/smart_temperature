@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.7.2)
 
-set(PROJECT_NAME arduino_tdd_cpp_lib)
+set(PROJECT_NAME smart_temperature_lib)
 project(${PROJECT_NAME})
 
-include_directories(${ARDUINO_TDD_CPP_HEADERS_DIR})
+include_directories(${SMART_TEMPERATURE_HEADERS_DIR})
 file(GLOB SOURCE_FILES *.cpp)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")

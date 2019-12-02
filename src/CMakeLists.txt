@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.7.2)
 add_subdirectory(main)
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
-  set(PROJECT_NAME arduino_tdd_cpp)
+  set(PROJECT_NAME smart_temperature)
 
-  include_directories(${ARDUINO_TDD_CPP_HEADERS_DIR})
+  include_directories(${SMART_TEMPERATURE_HEADERS_DIR})
 
   set(${PROJECT_NAME}_BOARD uno)
   # set(ARDUINO_CPU)
@@ -14,10 +14,10 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(${PROJECT_NAME}_HDRS User_Setup.h)
 
   ### Additional static libraries to include in the target.
-  set(${PROJECT_NAME}_LIBS arduino_tdd_cpp_lib uno_LiquidCrystal)
+  set(${PROJECT_NAME}_LIBS smart_temperature_lib uno_LiquidCrystal)
 
   ### Main sketch file
-  set(${PROJECT_NAME}_SKETCH arduino_tdd_cpp.ino)
+  set(${PROJECT_NAME}_SKETCH main.ino)
 
   ### Additional settings to add non-standard or your own Arduino libraries.
   # For this example (libs will contain additional arduino libraries)
