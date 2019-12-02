@@ -1,4 +1,4 @@
-#include <LcdScreen.h>
+#include "../../hardware/include/LcdScreen.h"
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include <LiquidCrystal.h>

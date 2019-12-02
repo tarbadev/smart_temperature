@@ -2,7 +2,7 @@
 #define SMART_TEMPERATURE_TEMPERATURESENSORMOCK_H
 
 #include "gmock/gmock.h"
-#include <TemperatureSensor.h>
+#include "../../../driver/include/TemperatureSensor.h"
 
 class TemperatureSensorMock: public TemperatureSensor {
 public:

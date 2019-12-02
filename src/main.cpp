@@ -1,9 +1,9 @@
 #include <Arduino.h>
 #include <LiquidCrystal.h>
-#include "User_Setup.h"
-#include "SmartTemperature.h"
-#include "Logger.h"
-#include "TemperatureSensor.h"
+#include <SmartTemperature.h>
+#include <Logger.h>
+#include <LcdScreen.h>
+#include <TemperatureSensor.h>
 
 TemperatureSensor temperatureSensor(A0);
 Logger logger;

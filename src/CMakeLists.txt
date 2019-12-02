@@ -1,39 +1,22 @@
-cmake_minimum_required(VERSION 3.7.2)
+cmake_minimum_required(VERSION 3.13)
+
 add_subdirectory(main)
+
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(PROJECT_NAME smart_temperature)
-
-  include_directories(${SMART_TEMPERATURE_HEADERS_DIR})
-
-  set(${PROJECT_NAME}_BOARD uno)
-  # set(ARDUINO_CPU)
   project(${PROJECT_NAME})
 
-  # Define additional source and header files or default arduino sketch files
-  # set(${PROJECT_NAME}_SRCS)
-  set(${PROJECT_NAME}_HDRS User_Setup.h)
+  get_board_id(board_id uno)
 
-  ### Additional static libraries to include in the target.
-  set(${PROJECT_NAME}_LIBS smart_temperature_lib uno_LiquidCrystal)
+  add_arduino_executable(${PROJECT_NAME} ${board_id} main.cpp)
+  upload_arduino_target(${PROJECT_NAME} ${board_id} /dev/cu.usbmodem14301)
 
-  ### Main sketch file
-  set(${PROJECT_NAME}_SKETCH main.ino)
+  find_arduino_library(liquid_crystal LiquidCrystal ${board_id})
+  link_arduino_library(${PROJECT_NAME} liquid_crystal ${board_id})
 
-  ### Additional settings to add non-standard or your own Arduino libraries.
-  # For this example (libs will contain additional arduino libraries)
-  # An Arduino library my_lib will contain files in libs/my_lib/: my_lib.h, my_lib.cpp + any other cpp files
-  # link_directories(${CMAKE_CURRENT_SOURCE_DIR}/)
+  link_arduino_library(${PROJECT_NAME} arduino_driver ${board_id})
 
-  # For nested library sources replace ${LIB_NAME} with library name for each library
-  # set(_RECURSE true)
-
-  #### Additional settings for programmer. From programmers.txt
-  # set(${PROJECT_NAME}_PROGRAMMER avrispmkii)
-  set(${PROJECT_NAME}_PORT /dev/cu.usbmodem14301)
-  # set(uno.upload.speed 9600)
-
-  ## Verbose build process
-  # set(${PROJECT_NAME}_AFLAGS -v)
-
-  generate_arduino_firmware(${PROJECT_NAME})
+  link_arduino_library(${PROJECT_NAME} smart_temperature_lib ${board_id})
+#  target_link_libraries(${PROJECT_NAME} PUBLIC arduino_driver)
 endif ()
+

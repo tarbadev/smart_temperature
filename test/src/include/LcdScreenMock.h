@@ -1,7 +1,7 @@
 #ifndef SMART_TEMPERATURE_LCDSCREENMOCK_H
 #define SMART_TEMPERATURE_LCDSCREENMOCK_H
 
-#include <LcdScreen.h>
+#include "../../../driver/include/LcdScreen.h"
 
 class LcdScreenMock : public LcdScreen {
 public:

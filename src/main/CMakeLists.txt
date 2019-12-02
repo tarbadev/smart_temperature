@@ -1,18 +1,24 @@
-cmake_minimum_required(VERSION 3.7.2)
+cmake_minimum_required(VERSION 3.13)
 
 set(PROJECT_NAME smart_temperature_lib)
 project(${PROJECT_NAME})
 
-include_directories(${SMART_TEMPERATURE_HEADERS_DIR})
-file(GLOB SOURCE_FILES *.cpp)
+file(GLOB _SRCS *.cpp)
+
+include_directories(include)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
-  include_directories(${ARDUINO_LIBRARIES_PATH}/LiquidCrystal/src)
+  add_library(${PROJECT_NAME} STATIC ${_SRCS})
 
-  generate_arduino_library(${PROJECT_NAME}
-      SRCS ${SOURCE_FILES}
-      BOARD uno)
+  target_link_libraries(${PROJECT_NAME} PUBLIC arduino_driver)
 else ()
   include_directories(stub)
-  add_library(${PROJECT_NAME} SHARED STATIC ${SOURCE_FILES} stub/dtostrf.c)
+  add_library(${PROJECT_NAME} SHARED STATIC ${_SRCS} stub/dtostrf.c)
 endif ()
+
+target_include_directories(
+    ${PROJECT_NAME}
+    PUBLIC
+      $<INSTALL_INTERFACE:include>
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)

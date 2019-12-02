@@ -1,9 +1,9 @@
 #ifndef SMART_TEMPERATURE_SMARTTEMPERATURE_H
 #define SMART_TEMPERATURE_SMARTTEMPERATURE_H
 
-#include "Logger.h"
-#include "TemperatureSensor.h"
-#include "LcdScreen.h"
+#include <Logger.h>
+#include <TemperatureSensor.h>
+#include <LcdScreen.h>
 
 class SmartTemperature {
 

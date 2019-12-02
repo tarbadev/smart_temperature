@@ -1,4 +1,4 @@
-#include "SmartTemperature.h"
+#include <SmartTemperature.h>
 #ifndef ARDUINO
 #include "dtostrf.h"
 #endif

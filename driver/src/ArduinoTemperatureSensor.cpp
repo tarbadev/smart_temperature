@@ -1,4 +1,4 @@
-#include <TemperatureSensor.h>
+#include "../include/TemperatureSensor.h"
 
 double TemperatureSensor::readTemperature() {
   int total = 0;

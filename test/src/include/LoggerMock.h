@@ -2,7 +2,7 @@
 #define SMART_TEMPERATURE_LOGGERMOCK_H
 
 #include "gmock/gmock.h"
-#include <Logger.h>
+#include "../../../driver/include/Logger.h"
 
 class LoggerMock: public Logger {
 public:
