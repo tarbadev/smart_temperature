@@ -1,5 +1,5 @@
-#ifndef ARDUINO_TDD_CPP_LCDSCREEN_H
-#define ARDUINO_TDD_CPP_LCDSCREEN_H
+#ifndef SMART_TEMPERATURE_LCDSCREEN_H
+#define SMART_TEMPERATURE_LCDSCREEN_H
 
 #include <LiquidCrystal.h>
 
@@ -15,4 +15,4 @@ private:
   LiquidCrystal *pLiquidCrystal;
 };
 
-#endif //ARDUINO_TDD_CPP_LCDSCREEN_H
+#endif //SMART_TEMPERATURE_LCDSCREEN_H

@@ -1,5 +1,5 @@
-#ifndef ARDUINO_TDD_CPP_LOGGERMOCK_H
-#define ARDUINO_TDD_CPP_LOGGERMOCK_H
+#ifndef SMART_TEMPERATURE_LOGGERMOCK_H
+#define SMART_TEMPERATURE_LOGGERMOCK_H
 
 #include "gmock/gmock.h"
 #include <Logger.h>
@@ -10,4 +10,4 @@ public:
   MOCK_METHOD(void, writeLog, (const char *logMessage));
 };
 
-#endif //ARDUINO_TDD_CPP_LOGGERMOCK_H
+#endif //SMART_TEMPERATURE_LOGGERMOCK_H
