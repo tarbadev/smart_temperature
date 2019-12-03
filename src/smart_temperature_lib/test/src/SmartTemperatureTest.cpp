@@ -2,7 +2,6 @@
 #include <TemperatureSensorMock.h>
 #include <LoggerMock.h>
 #include <LcdScreenMock.h>
-#include <Serial.h>
 #include "gtest/gtest.h"
 
 using ::testing::StrEq;
@@ -11,12 +10,6 @@ using ::testing::Return;
 
 class SmartTemperatureTest : public ::testing::Test {
 public:
-  SmartTemperatureTest() {
-    serialMockInstance();
-  }
-  ~SmartTemperatureTest() override {
-    releaseSerialMock();
-  }
 protected:
   void SetUp() override {
     smartTemperature = new SmartTemperature(&loggerMock, &temperatureSensorMock, &lcdScreenMock);

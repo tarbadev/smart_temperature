@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include "LiquidCrystal.h"
 #include "gtest/gtest.h"
 
 TEST(ApplicationTest, setup_initializesLogger) {

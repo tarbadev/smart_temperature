@@ -7,5 +7,8 @@ cmake -H. -Bbuild # -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
 cmake --build build --target arduino_driver_test
 ./build/driver/arduino/test/arduino_driver_test
 
-cmake --build build --target smart_temperature_test
-./build/test/smart_temperature_test
+cmake --build build --target smart_temperature_lib_test
+./build/src/smart_temperature_lib/test/smart_temperature_lib_test
+
+cmake --build build --target application_test
+./build/test/application_test
