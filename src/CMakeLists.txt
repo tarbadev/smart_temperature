@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-add_subdirectory(main)
+add_subdirectory(smart_temperature_lib)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   set(PROJECT_NAME smart_temperature)
@@ -17,6 +17,5 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   link_arduino_library(${PROJECT_NAME} arduino_driver ${board_id})
 
   link_arduino_library(${PROJECT_NAME} smart_temperature_lib ${board_id})
-#  target_link_libraries(${PROJECT_NAME} PUBLIC arduino_driver)
 endif ()
 
