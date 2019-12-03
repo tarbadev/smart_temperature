@@ -1,4 +1,4 @@
-#include "../../hardware/include/TemperatureSensor.h"
+#include <TemperatureSensor.h>
 #include <Arduino.h>
 #include "gtest/gtest.h"
 

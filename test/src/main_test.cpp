@@ -1,6 +1,5 @@
 #include "Arduino.h"
 #include "gtest/gtest.h"
-#include "main.cpp"
 
 TEST(ApplicationTest, setup_initializesLogger) {
   LiquidCrystalMock *pLiquidCrystalMock = liquidCrystalMockInstance();

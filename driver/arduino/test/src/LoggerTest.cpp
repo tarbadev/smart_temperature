@@ -1,4 +1,4 @@
-#include "../../hardware/include/Logger.h"
+#include <Logger.h>
 #include <Serial.h>
 #include "gtest/gtest.h"
 
