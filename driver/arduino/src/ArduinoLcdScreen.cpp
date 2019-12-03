@@ -1,4 +1,4 @@
-#include "../include/LcdScreen.h"
+#include "LcdScreen.h"
 
 void LcdScreen::initialize() {
   pLiquidCrystal->begin(16, 2);

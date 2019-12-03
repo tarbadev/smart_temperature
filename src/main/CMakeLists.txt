@@ -10,11 +10,13 @@ include_directories(include)
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   add_library(${PROJECT_NAME} STATIC ${_SRCS})
 
-  target_link_libraries(${PROJECT_NAME} PUBLIC arduino_driver)
+  target_link_libraries(${PROJECT_NAME} PRIVATE arduino_driver)
 else ()
   include_directories(stub)
   add_library(${PROJECT_NAME} SHARED STATIC ${_SRCS} stub/dtostrf.c)
 endif ()
+
+target_link_libraries(${PROJECT_NAME} PRIVATE driver)
 
 target_include_directories(
     ${PROJECT_NAME}

@@ -1,4 +1,4 @@
-#include "../include/Logger.h"
+#include "Logger.h"
 
 void Logger::writeLog(const char *pLogMessage) {
   Serial.println(pLogMessage);
