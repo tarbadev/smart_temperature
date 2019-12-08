@@ -6,5 +6,5 @@ include_directories(src/include)
 
 file(GLOB _SRCS src/*.cpp)
 
-add_executable(${PROJECT_NAME} ${_SRCS} ${CMAKE_SOURCE_DIR}/src/main.cpp)
+add_executable(${PROJECT_NAME} ${_SRCS} ${CMAKE_SOURCE_DIR}/app/src/main.cpp)
 target_link_libraries(${PROJECT_NAME} smart_temperature_lib driver arduino_driver driver arduino-mock gmock gtest_main)
