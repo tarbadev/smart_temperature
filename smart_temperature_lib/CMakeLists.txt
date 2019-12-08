@@ -5,9 +5,10 @@ project(${PROJECT_NAME})
 
 file(GLOB _SRCS src/*.cpp)
 
-if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
+if (BUILD_TESTS)
   include_directories(stub)
   set(_SRCS ${_SRCS} stub/dtostrf.c)
+  add_subdirectory(test)
 endif ()
 
 add_library(${PROJECT_NAME} STATIC ${_SRCS})
@@ -24,5 +25,3 @@ target_include_directories(
       $<INSTALL_INTERFACE:include>
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
-
-add_subdirectory(test)

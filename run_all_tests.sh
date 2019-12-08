@@ -2,7 +2,7 @@
 set -e
 set +x
 
-cmake -H. -Bbuild # -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
+cmake -H. -Bbuild -DBUILD_TESTS=ON # -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
 
 cmake --build build --target arduino_driver_test
 ./build/driver/arduino/test/arduino_driver_test

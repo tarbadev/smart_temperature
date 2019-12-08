@@ -4,11 +4,9 @@ project(smart_temperature)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+option(BUILD_TESTS "Build test programs" OFF)
 
-if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
+if (BUILD_TESTS)
   add_subdirectory(lib/googletest)
   include_directories("${gtest_SOURCE_DIR}/include")
   include_directories("${gmock_SOURCE_DIR}/include")

@@ -24,4 +24,6 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   link_arduino_library(arduino_driver arduino_driver_liquid_crystal ${board_id} HEADER_ONLY)
 endif ()
 
-add_subdirectory(test)
+if (BUILD_TESTS)
+  add_subdirectory(test)
+endif ()
