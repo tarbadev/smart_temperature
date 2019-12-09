@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.13)
 
 set(PROJECT_NAME smart_temperature_lib)
-project(${PROJECT_NAME})
+project(
+    ${PROJECT_NAME}
+    VERSION 0.0.1
+    LANGUAGES CXX
+    DESCRIPTION "Smart Temperature Library, reads temperature and displays it"
+)
 
 file(GLOB _SRCS src/*.cpp)
 

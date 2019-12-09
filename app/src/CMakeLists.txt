@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.13)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
-  set(PROJECT_NAME smart_temperature)
-  project(${PROJECT_NAME})
+  set(PROJECT_NAME smart_temperature_app)
+  project(
+      ${PROJECT_NAME}
+      VERSION 0.0.1
+      LANGUAGES CXX
+      DESCRIPTION "Smart temperature Application for Arduino"
+  )
 
   get_board_id(board_id uno)
 

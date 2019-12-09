@@ -1,27 +1,26 @@
 cmake_minimum_required(VERSION 3.13)
 
+set(PROJECT_NAME arduino_driver)
 project(
-    arduino-driver
+    ${PROJECT_NAME}
     VERSION 0.0.1
     LANGUAGES CXX
     DESCRIPTION "Driver for Arduino"
 )
 
-#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
-
 file(GLOB _SRCS src/*.cpp)
 
-add_library(arduino_driver STATIC ${_SRCS})
+add_library(${PROJECT_NAME} STATIC ${_SRCS})
 
-target_link_libraries(arduino_driver PUBLIC driver)
+target_link_libraries(${PROJECT_NAME} PUBLIC driver)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Arduino")
   get_board_id(board_id uno)
 
-  add_arduino_core_lib(arduino_driver ${board_id})
+  add_arduino_core_lib(${PROJECT_NAME} ${board_id})
 
-  find_arduino_library(arduino_driver_liquid_crystal LiquidCrystal ${board_id} HEADER_ONLY)
-  link_arduino_library(arduino_driver arduino_driver_liquid_crystal ${board_id} HEADER_ONLY)
+  find_arduino_library(${PROJECT_NAME}_liquid_crystal LiquidCrystal ${board_id} HEADER_ONLY)
+  link_arduino_library(${PROJECT_NAME} ${PROJECT_NAME}_liquid_crystal ${board_id} HEADER_ONLY)
 endif ()
 
 if (BUILD_TESTS)
