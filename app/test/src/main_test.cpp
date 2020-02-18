@@ -15,7 +15,7 @@ TEST(ApplicationTest, setup_initializesLogger) {
   releaseLiquidCrystalMock();
 }
 
-TEST(ApplicationTest, loop_readsTemperatureAndWaits10Seconds) {
+TEST(ApplicationTest, loop_readsTemperatureAndWaits1Seconds) {
   ArduinoMock *pArduinoMock = arduinoMockInstance();
   SerialMock *pSerialMock = serialMockInstance();
   LiquidCrystalMock *pLiquidCrystalMock = liquidCrystalMockInstance();
@@ -25,7 +25,7 @@ TEST(ApplicationTest, loop_readsTemperatureAndWaits10Seconds) {
   EXPECT_CALL(*pSerialMock, println(testing::SafeMatcherCast<const char *>(testing::StrEq("10.5 degrees"))));
   EXPECT_CALL(*pLiquidCrystalMock, clear());
   EXPECT_CALL(*pLiquidCrystalMock, print(testing::SafeMatcherCast<const char *>(testing::StrEq("10.5 degrees"))));
-  EXPECT_CALL(*pArduinoMock, delay(testing::Eq(10000)));
+  EXPECT_CALL(*pArduinoMock, delay(testing::Eq(1000)));
 
   loop();
 

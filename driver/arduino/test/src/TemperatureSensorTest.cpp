@@ -13,18 +13,10 @@ TEST(TemperatureSensorTest, readTemperature_callsAnalogReadWithPin_andAveragesSe
   TemperatureSensor temperatureSensor(pin);
 
   EXPECT_CALL(*pArduinoMock, analogRead(Eq(pin)))
-      .Times(Exactly(64))
-      .WillOnce(Return(100))
-      .WillOnce(Return(110))
-      .WillOnce(Return(120))
-      .WillOnce(Return(130))
-      .WillOnce(Return(140))
-      .WillOnce(Return(150))
-      .WillRepeatedly(Return(124));
+      .WillOnce(Return(124));
 
   double temperature = temperatureSensor.readTemperature();
-  EXPECT_GE(temperature, 10.5);
-  EXPECT_LE(temperature, 10.6);
+  EXPECT_DOUBLE_EQ(temperature, 10.546875);
 
   releaseArduinoMock();
 }

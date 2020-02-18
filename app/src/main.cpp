@@ -18,5 +18,5 @@ void setup() {
 
 void loop() {
   smartTemperature.update();
-  delay(10000);
+  delay(1000);
 }
