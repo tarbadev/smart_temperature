@@ -5,7 +5,7 @@
 
 class LcdScreenMock : public LcdScreen {
 public:
-  LcdScreenMock() : LcdScreen(nullptr) {}
+  LcdScreenMock() : LcdScreen(nullptr, 0) {}
 
   MOCK_METHOD(void, display, (const char *message));
 };

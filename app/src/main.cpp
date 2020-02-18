@@ -8,7 +8,7 @@
 TemperatureSensor temperatureSensor(A0);
 Logger logger;
 LiquidCrystal liquidCrystal(12, 11, 5, 4, 3, 2);
-LcdScreen lcdScreen(&liquidCrystal);
+LcdScreen lcdScreen(&liquidCrystal, 13);
 SmartTemperature smartTemperature(&logger, &temperatureSensor, &lcdScreen);
 
 void setup() {
