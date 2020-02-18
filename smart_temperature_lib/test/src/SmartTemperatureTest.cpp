@@ -29,8 +29,8 @@ TEST_F(SmartTemperatureTest, update_readsTemperature_andLogsIt) {
   EXPECT_CALL(temperatureSensorMock, readTemperature)
       .Times(Exactly(1))
       .WillOnce(Return(15.312));
-  EXPECT_CALL(loggerMock, writeLog(StrEq("15.3 degrees"))).Times(Exactly(1));
-  EXPECT_CALL(lcdScreenMock, display(StrEq("15.3 degrees"))).Times(Exactly(1));
+  EXPECT_CALL(loggerMock, writeLog(StrEq("15.3C. degrees"))).Times(Exactly(1));
+  EXPECT_CALL(lcdScreenMock, display(StrEq("15.3C. degrees"))).Times(Exactly(1));
 
   smartTemperature->update();
 }
