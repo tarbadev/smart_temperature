@@ -22,6 +22,7 @@ function(find_tool_avrdude)
     find_program(ARDUINO_CMAKE_AVRDUDE_PROGRAM
             NAMES avrdude
             PATHS ${ARDUINO_SDK_BIN_PATH}
+            NO_SYSTEM_ENVIRONMENT_PATH
             DOC "Path to avrdude program (Code Uploader)")
     if (NOT ARDUINO_CMAKE_AVRDUDE_PROGRAM OR ${ARDUINO_CMAKE_AVRDUDE_PROGRAM} STREQUAL "")
         message(FATAL_ERROR "avrdude program is required by the toolchain but can't be found")
